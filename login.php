@@ -1,23 +1,20 @@
 <?php
-require_once __DIR__ . '/include/config.php';
+require_once __DIR__ . '/include/autoload.php';
 
 $erro = false;
-$usuario = '';
+$nome_usuario = '';
 
 // Se é um submit do form de login:
 if ( isset( $_POST['a'] ) && ( $_POST['a'] === 'entrar' ) ) {
 
     // Consegue os dados de login do form:
         
-    $usuario = $_POST[ 'u' ];
+    $nome_usuario = $_POST[ 'u' ];
     $senha = $_POST[ 's' ];
 
-    // Verifica se é usuário válido:
-
-    $erro = ( ( $usuario !== 'eldes' ) || ( $senha !== '123' ) );
+    $erro = ! Controle_Auth::login( $nome_usuario, $senha );
 
     if ( ! $erro ) {
-        $_SESSION[ 'usuario' ] = $usuario;
         header( 'Location: index.php' );
         exit(0);
     }
@@ -38,7 +35,7 @@ if ( isset( $_POST['a'] ) && ( $_POST['a'] === 'entrar' ) ) {
     <p class="erro"><i class="material-icons">error</i> <span>Login inválido!</span></p>
     <?php endif; ?>
     <form action="login.php" method="post">
-        <input type="text" name="u" placeholder="Nome de usuário" value="<?php echo $usuario ?>">
+        <input type="text" name="u" placeholder="Nome de usuário" value="<?php echo $nome_usuario ?>">
         <input type="password" name="s" placeholder="Senha">
         <button type="submit" name="a" value="entrar">Entrar</button>
     </form>
