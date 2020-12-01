@@ -44,6 +44,7 @@ class Controle_Auth {
             $usuario = $resultado->fetchObject();
 
             if ( $usuario !== FALSE) {
+                unset( $usuario->senha );
                 $_SESSION[ 'usuario' ] = $usuario;
 
                 return TRUE;
@@ -65,7 +66,7 @@ class Controle_Auth {
         if ( ! isset($_SESSION[ 'usuario' ]) ) {
             return NULL;
         }
-        
+
         return $_SESSION[ 'usuario' ];
     }
 
