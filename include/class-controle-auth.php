@@ -61,4 +61,12 @@ class Controle_Auth {
         }
     }
 
+    public static function get_usuario_logado(): ?object {
+        if ( ! isset($_SESSION[ 'usuario' ]) ) {
+            return NULL;
+        }
+        
+        return $_SESSION[ 'usuario' ];
+    }
+
 }
