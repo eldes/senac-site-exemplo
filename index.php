@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/include/autoload.php';
 
-controla_acesso();
+Controle_Auth::controla_acesso();
 Controle_Interface::exibir_cabecalho( 'Home', Controle_Interface::SECAO_HOME );
 ?>
     <article>
