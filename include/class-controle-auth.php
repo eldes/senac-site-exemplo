@@ -1,15 +1,24 @@
 <?php
-require_once __DIR__ . '/autoload.php';
-
 class Controle_Auth {
 
-    public static function controla_acesso() {
-        // Se não tem usuário logado então vai para tela de login:
+    public static function controla_acesso( bool $adm = FALSE ) {
+
+        // Se não tem usuário logado
+        // ou se tem mas não tem permissão
+        // então vai para tela de login:
     
-        if ( ! isset( $_SESSION[ 'usuario' ] ) ) {
+        if ( ( ! self::tem_usuario_logado() ) || ( $adm && ( ! self::usuario_logado_eh_adm() ) ) ) {
             header( 'Location: login.php' );
             exit(0);
         }
+    }
+
+    private static function tem_usuario_logado(): bool {
+        return isset( $_SESSION[ 'usuario' ] );
+    }
+
+    private static function usuario_logado_eh_adm(): bool {
+        return $_SESSION[ 'usuario' ]->flag_adm === '0';
     }
 
     /**

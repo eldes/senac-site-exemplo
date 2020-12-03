@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{TITULO}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="painel-usuario">
+            <span><i class="material-icons">person</i> Bem-vindo, {NOME_USUARIO_LOGADO}</span>
+            <a href="logout.php" class="btn">Sair</a>
+        </div>
+        <nav class="menu-principal">
+            <a href="index.php" class="{SELECIONADO_HOME}">Home</a>
+            <a href="lista.php" class="{SELECIONADO_LISTA}">Lista</a>
+        </nav>
+    </header>
+    <article>
+        <h1>{TITULO}</h1>
+        {PRINCIPAL}
+    </article>
+</body>
+</html>

@@ -1,0 +1,1 @@
+ALTER TABLE `usuario` ADD `flag_adm` INT(1) NOT NULL DEFAULT 0 AFTER `nome_completo`;

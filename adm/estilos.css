@@ -1,0 +1,61 @@
+* {
+    font-family: Poppins;
+}
+
+body {
+    overflow-y: scroll;
+    color: #600;
+}
+
+.erro {
+    display: flex;
+    align-items: center;
+    border: 1px solid #900;
+    border-radius: 0.2em;
+    padding: 0.4em;
+    background-color: #fcc;
+    color: #900;
+}
+
+.erro i {
+    margin-right: 0.5em;
+}
+
+.btn {
+    display: inline-block;
+    border: 1px solid #900;
+    border-radius: 0.5em;
+    padding: 0.3em 0.5em;
+    background-color: #fcc;
+    color: #900;
+    text-decoration: none;
+}
+
+header .painel-usuario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.5em;
+}
+header .painel-usuario span {
+    display: flex;
+    align-items: center;
+}
+
+header nav.menu-principal {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1em 0em;
+    border-top: 1px solid #600;
+    border-bottom: 1px solid #600;
+}
+
+header nav.menu-principal a {
+    padding: 0.2em 0.4em;
+    text-decoration: none;
+}
+
+header nav.menu-principal a.selecionado {
+    background-color: #600;
+    color: #fff;
+}
