@@ -37,7 +37,9 @@ if ( isset( $_POST['a'] ) && ( $_POST['a'] === 'entrar' ) ) {
     <form action="login.php" method="post">
         <input type="text" name="u" placeholder="Nome de usuário" value="<?php echo $nome_usuario ?>">
         <input type="password" name="s" placeholder="Senha">
-        <button type="submit" name="a" value="entrar">Entrar</button>
+        <div class="form-button-group">
+            <button type="submit" name="a" value="entrar">Entrar</button>
+        </div>
     </form>
 </body>
 </html>
