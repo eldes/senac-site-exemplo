@@ -1,6 +1,10 @@
 <form action="editar.php" method="POST">
-    <input type="text" name="nome" placeholder="Nome" required>
-    <textarea name="descricao" placeholder="Descrição" required></textarea>
-    <input type="number" name="preco_centavos" placeholder="Preço em centavos" required pattern="^\d+$">
-    <button type="sumbit" class="btn" name="acao" value="SALVAR">Salvar</button>
+    <input type="text" name="nome" placeholder="Nome" required value="{PRODUTO_NOME}">
+    <textarea name="descricao" placeholder="Descrição" required>{PRODUTO_DESCRICAO}</textarea>
+    <input type="number" name="preco_centavos" placeholder="Preço em centavos" required pattern="^\d+$" value="{PRODUTO_PRECO_CENTAVOS}">
+    <input type="hidden" name="id" value="{PRODUTO_ID}">
+    <div class="form-button-group">
+        <a href="detalhe.php?id={PRODUTO_ID}" class="btn">Cancelar</a>
+        <button type="sumbit" class="btn btn-principal" name="acao" value="{ACAO}">Salvar</button>
+    </div>
 </form>
