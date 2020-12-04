@@ -31,14 +31,16 @@ form > * {
     margin: 0.5em;
 }
 
-form .form-button-group {
+.form-button-group {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    border-top: 1px dotted #933;
+    padding-top: 0.5em;
 }
 
 .btn {
-    display: inline-block;
+    display: flex;
     margin-right: 0.5em;
     border: 1px solid #900;
     border-radius: 0.5em;
@@ -51,6 +53,11 @@ form .form-button-group {
 
 .btn.btn-principal {
     background-color: #fcc;
+}
+
+.btn.btn-danger {
+    margin-top: 1em;
+    border-style: none;
 }
 
 header .painel-usuario {

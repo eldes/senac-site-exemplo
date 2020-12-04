@@ -12,7 +12,6 @@ $titulo = 'Novo produto';
 
 if ( isset( $_GET[ 'id' ] ) ) {
 
-    $template->ACAO = ACAO_ALTERAR;
     $titulo = 'Editar';
 
     try {
@@ -37,6 +36,7 @@ if ( isset( $_GET[ 'id' ] ) ) {
         $template->PRODUTO_NOME = $produto->nome;
         $template->PRODUTO_DESCRICAO = $produto->descricao;
         $template->PRODUTO_PRECO_CENTAVOS = $produto->preco_centavos;
+        $template->block( 'BLOCK_ACAO_ALTERAR' );
 
     } catch ( PDOException $e ) {
         echo 'erro na conexao';
@@ -44,7 +44,7 @@ if ( isset( $_GET[ 'id' ] ) ) {
     }
 
 } else {
-    $template->ACAO = ACAO_INSERIR;
+    $template->block( 'BLOCK_ACAO_INSERIR' );
 }
 
 if ( isset( $_POST['acao'] ) ) {
@@ -64,6 +64,9 @@ if ( isset( $_POST['acao'] ) ) {
             $sql = "UPDATE produto
             SET nome = '$nome', descricao = '$descricao', preco_centavos = $preco_centavos
             WHERE id = $_POST[id]";
+        } elseif ( $_POST['acao'] === 'REMOVER' ) {
+            $sql = "DELETE FROM produto
+            WHERE id = $_POST[id]";
         } else {
             echo 'acao invalida';
             exit(0);
@@ -80,6 +83,9 @@ if ( isset( $_POST['acao'] ) ) {
             $id = $pdo->lastInsertId();
         } elseif ( $_POST['acao'] === ACAO_ALTERAR ) {
             $id = $_POST[id];
+        } elseif ( $_POST['acao'] === 'REMOVER' ) {
+            header( "Location: lista.php" );
+            exit(0);
         } else {
             echo 'acao invalida';
             exit(0);

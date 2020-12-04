@@ -4,7 +4,16 @@
     <input type="number" name="preco_centavos" placeholder="Preço em centavos" required pattern="^\d+$" value="{PRODUTO_PRECO_CENTAVOS}">
     <input type="hidden" name="id" value="{PRODUTO_ID}">
     <div class="form-button-group">
+        <!-- BEGIN BLOCK_ACAO_INSERIR -->
+        <a href="lista.php" class="btn">Cancelar</a>
+        <button type="sumbit" class="btn btn-principal" name="acao" value="ISERIR">Salvar</button>
+        <!-- END BLOCK_ACAO_INSERIR -->
+        <!-- BEGIN BLOCK_ACAO_ALTERAR -->
         <a href="detalhe.php?id={PRODUTO_ID}" class="btn">Cancelar</a>
-        <button type="sumbit" class="btn btn-principal" name="acao" value="{ACAO}">Salvar</button>
+        <button type="sumbit" class="btn btn-principal" name="acao" value="EDITAR">Salvar</button>
+        <!-- END BLOCK_ACAO_ALTERAR -->
+    </div>
+    <div class="form-button-group">
+        <button type="sumbit" class="btn btn-danger" name="acao" value="REMOVER"><i class="material-icons">delete</i> Remover</button>
     </div>
 </form>
